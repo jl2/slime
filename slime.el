@@ -4132,7 +4132,7 @@ inserted in the current buffer."
 
 (defun slime-eval-defun ()
   "Evaluate the current toplevel form.
-Use `slime-re-evaluate-defvar' if the from starts with '(defvar'"
+Use \='slime-re-evaluate-defvar\=' if the from starts with \='(defvar\='"
   (interactive)
   (let ((form (slime-defun-at-point)))
     (cond ((string-prefix-p "(defvar " form t)
@@ -6651,7 +6651,7 @@ that value.
 ;; FIXME: could probably use slime-search-property.
 (defun slime-find-inspectable-object (direction limit)
   "Find the next/previous inspectable object.
-DIRECTION can be either 'next or 'prev.
+DIRECTION can be either \='next or \='prev.
 LIMIT is the maximum or minimum position in the current buffer.
 
 Return a list of two values: If an object could be found, the
@@ -7346,7 +7346,7 @@ is setup, unless the user already set one explicitly."
 ;;; FIXME: this looks almost slime `slime-alistify', perhaps the two
 ;;;        functions can be merged.
 (defun slime-group-similar (similar-p list)
-  "Return the list of lists of 'similar' adjacent elements of LIST.
+  "Return the list of lists of \='similar\=' adjacent elements of LIST.
 The function SIMILAR-P is used to test for similarity.
 The order of the input list is preserved."
   (if (null list)
