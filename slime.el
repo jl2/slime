@@ -3099,7 +3099,7 @@ first element of the source-path redundant."
                         (when more (down-list 1))))
           ;; Align at beginning
           (slime-forward-sexp)
-          (beginning-of-sexp))
+          (thing-at-point--beginning-of-sexp))
       (error (goto-char origin)))))
 
 
@@ -3410,7 +3410,7 @@ are supported:
         (condition-case nil
             (progn
               (slime-forward-sexp)
-              (beginning-of-sexp))
+              (thing-at-point--beginning-of-sexp))
           (error (goto-char 0)))))
     (point)))
 
@@ -5001,7 +5001,7 @@ This variable specifies both what was expanded and how.")
     (erase-buffer)
     (insert expansion)
     (goto-char (point-min))
-    (font-lock-fontify-buffer)))
+    (font-lock-ensure)))
 
 (defun slime-create-macroexpansion-buffer ()
   (let ((name (slime-buffer-name :macroexpansion)))
@@ -7225,15 +7225,9 @@ is setup, unless the user already set one explicitly."
 
 (easy-menu-define menubar-slime slime-mode-map "SLIME" slime-easy-menu)
 
-(defun slime-add-easy-menu ()
-  (easy-menu-add slime-easy-menu 'slime-mode-map))
-
-(add-hook 'slime-mode-hook 'slime-add-easy-menu)
-
 (defun slime-sldb-add-easy-menu ()
   (easy-menu-define menubar-slime-sldb
-    sldb-mode-map "SLDB" slime-sldb-easy-menu)
-  (easy-menu-add slime-sldb-easy-menu 'sldb-mode-map))
+    sldb-mode-map "SLDB" slime-sldb-easy-menu))
 
 (add-hook 'sldb-mode-hook 'slime-sldb-add-easy-menu)
 
