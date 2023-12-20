@@ -280,7 +280,8 @@ argument."
   "List of functions to perform completion.
 Works like `completion-at-point-functions'.
 `slime--completion-at-point' uses this variable."
-  :group 'slime-mode)
+  :group 'slime-mode
+  :type '(list function))
 
 ;;;;; slime-mode-faces
 
